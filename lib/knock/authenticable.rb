@@ -31,7 +31,7 @@ module Knock::Authenticable
   end
 
   def unauthorized_entity(entity_name)
-    head(:unauthorized)
+    render json: { error: "Unauthorized entity: #{entity_name}" }, status: :unauthorized
   end
 
   def token_from_request_headers
